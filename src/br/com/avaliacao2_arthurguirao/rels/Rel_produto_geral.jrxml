@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a2b207c-77a8-4cfd-8462-70be2b4fe240">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT l.*, f.nome_for
+FROM livro l, fornecedor f
+WHERE l.id_for = f.id_for;]]>
+	</queryString>
+	<field name="id_livro" class="java.lang.Integer"/>
+	<field name="nome_livro" class="java.lang.String"/>
+	<field name="desc_livro" class="java.lang.String"/>
+	<field name="cod_bar_livro" class="java.lang.String"/>
+	<field name="p_custo_livro" class="java.lang.Double"/>
+	<field name="p_emprestimo_livro" class="java.lang.Double"/>
+	<field name="id_for" class="java.lang.Integer"/>
+	<field name="nome_for" class="java.lang.String"/>
+	<group name="nome_livro">
+		<groupExpression><![CDATA[$F{nome_livro}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="161" y="0" width="224" height="47" uuid="358a7dc8-1570-423c-8e30-75812f06a137"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatorio dos Livros]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="cf3318d0-094b-4da9-823e-f6b467ca34a7"/>
+				<text><![CDATA[Livro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="5e9b0018-7e7e-4a8f-a312-1e953889bfca"/>
+				<textFieldExpression><![CDATA[$F{nome_livro}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="19" y="78" width="512" height="1" uuid="f7449239-476c-40f3-95cd-4328c1b911ea"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="26405921-bcfd-4a87-8ce0-eb2e9a938d12"/>
+				<text><![CDATA[Fornecedor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="20" width="100" height="20" uuid="f7c490e6-f8d9-45ee-8bde-ec2f6744a3c9"/>
+				<textFieldExpression><![CDATA[$F{nome_for}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
